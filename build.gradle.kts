@@ -1,9 +1,10 @@
 plugins {
     kotlin("jvm") version "1.8.10"
+    `maven-publish`
 }
 
-group = "com.tpcly"
-version = "1.1.1"
+group = "com.github.dasilvab"
+version = "1.1.2"
 
 repositories {
     mavenCentral()
@@ -16,4 +17,12 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["kotlin"])
+        }
+    }
 }
